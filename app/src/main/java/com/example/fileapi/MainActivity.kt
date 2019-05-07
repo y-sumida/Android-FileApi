@@ -57,4 +57,13 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    override fun onBackPressed() {
+        if (currentDir != Environment.getExternalStorageDirectory()) {
+            currentDir = currentDir.parentFile
+            showFiles()
+        } else {
+            super.onBackPressed()
+        }
+    }
 }
